@@ -34,6 +34,7 @@ end
  function build_max_heap!(A)
     half_arr_size=trunc(Int,(size(A,1))/2)
     i=half_arr_size+1
+<<<<<<< HEAD
     println("i:",i)
     while i >=1
          println("Build max_heap i:",i)
@@ -42,10 +43,17 @@ end
          i-=1
     end
     println(A)
+=======
+    while i >=1
+         max_heapify!(A,i,size(A,1))
+         i-=1
+    end
+>>>>>>> 9c2d45d51715f78c504e33c7d1faaf9d18a8d425
 end
 
 function heap_sort!(A)
     build_max_heap!(A)
+<<<<<<< HEAD
     println("finished building")
     i=size(A,1)
     while i>=1
@@ -55,6 +63,12 @@ function heap_sort!(A)
         max_heapify!(A,1,i-1)
         println("finished heapify i = ",i)
         println(A)
+=======
+    i=size(A,1)
+    while i>=1
+        swap!(A,1,i)
+        max_heapify!(A,1,i-1)
+>>>>>>> 9c2d45d51715f78c504e33c7d1faaf9d18a8d425
         i-=1
     end
 end
