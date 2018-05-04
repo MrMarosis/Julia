@@ -45,7 +45,7 @@ function ^(a::Gn{N},x::T) where {N,T<:Integer}
         result=(result*a.x)
         result%=N
     end
-    return result
+    result
 end
 
 function repetition_period(G::Gn{N}) where N
@@ -53,8 +53,10 @@ function repetition_period(G::Gn{N}) where N
     while (^(G, r) != 1)
         r = r + 1
     end
-    if r <= N return r
-    else throw(DomainError)
+    if r <= N
+        return r
+    else
+        throw(DomainError)
     end
 end
 
@@ -65,7 +67,7 @@ function xgcd(a,b) #Extended Euclides Algorithm
         m, n = x-u*q, y-v*q
         b,a, x,y, u,v = a,r, u,v, m,n
     end
-    return b, x, y
+    convert(Array{Float64,1}, [b, x, y])
 end
 
 function get_num_elements(Gn::Type{Gn{N}}) where N
@@ -75,7 +77,7 @@ function get_num_elements(Gn::Type{Gn{N}}) where N
             num_elements+=1
         end
     end
-    return num_elements
+    num_elements
 end
 
 #Given public key N = 55, c = 17 and encoded message b = 4
@@ -87,11 +89,11 @@ r = repetition_period(Gn{N}(b))
 println("repetition period = ",r)
 #Calculate d - modular multiplicative inverse of c in Gn{r}. It's a private key
 d = Int16(xgcd(c,N)[2])
-println("Inveresed element = ", Int16(d))
+println("Inveresed element = ", d)
 #Decoded message
 a = b^d %N
 #Check if the coding (N,k) is correct
 println("Decoded msg: ", a)
-println(a^c % N)
-println(b)
+println("a^c % N = ",a^c % N)
+println("b = ", b)
 println(a^c % N == b ? "Coding is correct" : "Coding is wrong")
