@@ -86,33 +86,32 @@ BenchmarkTools.Trial:
 ###Changing graph edges' array to be bitArray
 ```
 BenchmarkTools.Trial: 
-  memory estimate:  3.77 GiB
-  allocs estimate:  3930947
+  memory estimate:  3.29 GiB
+  allocs estimate:  3850323
   --------------
-  minimum time:     1.676 s (19.94% GC)
-  median time:      1.788 s (24.48% GC)
-  mean time:        1.777 s (23.91% GC)
-  maximum time:     1.876 s (24.44% GC)
+  minimum time:     1.552 s (18.53% GC)
+  median time:      1.628 s (18.84% GC)
+  mean time:        1.633 s (18.94% GC)
+  maximum time:     1.738 s (23.11% GC)
   --------------
-  samples:          57
+  samples:          62
   evals/sample:     1
-  
+
 ```
 
 ### Breaking functions into multiple definitions
 ```
 BenchmarkTools.Trial: 
-  memory estimate:  3.77 GiB
-  allocs estimate:  3721679
+  memory estimate:  3.29 GiB
+  allocs estimate:  3722769
   --------------
-  minimum time:     1.654 s (18.49% GC)
-  median time:      1.701 s (18.51% GC)
-  mean time:        1.714 s (18.44% GC)
-  maximum time:     1.927 s (17.64% GC)
+  minimum time:     1.482 s (19.87% GC)
+  median time:      1.535 s (19.67% GC)
+  mean time:        1.552 s (19.64% GC)
+  maximum time:     1.784 s (18.98% GC)
   --------------
-  samples:          59
+  samples:          65
   evals/sample:     1
 
-  
 ```
 
