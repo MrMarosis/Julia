@@ -137,41 +137,41 @@ function check_euler(graph::Array{GraphVertex,1})::Bool
     false
 end
 
+node_to_str(n::Person)::String = "Person: $(n.name)\n"
+node_to_str(n::Address)::String = "Street nr: $(n.streetNumber)\n"
+
 #= Returns text representation of the graph consisiting of each node's value
    text and number of its neighbors. =#
-function graph_to_str(graph::Array{GraphVertex, 1})::String
-  graph_str= ""
+function graph_to_str(graph::Array{GraphVertex, 1})::IOBuffer
+  io_buff = IOBuffer()
 
   for v in graph
-    graph_str *= "****\n"
+    write(io_buff,"****\n")
 
-    n = v.value
-    if isa(n, Person)
-      node_str = "Person: $(n.name)\n"
-    else isa(n, Address)
-      node_str = "Street nr: $(n.streetNumber)\n"
-    end
+    write(io_buff,node_to_str(v.value))
 
-    graph_str *= node_str
-    graph_str *= "Neighbors: $(length(v.neighbors))\n"
+    write(io_buff,"Neighbors: $(length(v.neighbors))\n")
   end
-  graph_str
+  io_buff
 end
 
 #= Tests graph functions by creating 100 graphs, checking Euler cycle
   and creating text representation. =#
 function test_graph()
+  io_buff = IOBuffer()
   for i=1:100
+
     graph = GraphVertex[]
 
     A::Array{Int64,2}= generate_random_graph()
     nodes = generate_random_nodes()
     convert_to_graph(A, nodes, graph)
 
-    str = graph_to_str(graph)
-    #println(str)
-    println(check_euler(graph))
+    big_io_buff::IOBuffer = graph_to_str(graph)
+    #println(String(take!(big_io_buff)))
+    write(io_buff,check_euler(graph) ? "True \n":"False \n")
   end
+  println(String(take!(io_buff)))
 end
 
 end
