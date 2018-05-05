@@ -38,12 +38,8 @@ const K = 10000
 #= Generates random directed graph of size N with K edges
 and returns its adjacency matrix.=#
 # To be filled with 0 bitmap
-function generate_random_graph()::Array{Int64,2}
-    A = Array{Int64,2}(N, N)
-
-    for i=1:N, j=1:N
-      A[i,j] = 0
-    end
+function generate_random_graph()::BitArray
+    A = falses(N, N)
 
     for i in sample(1:N*N, K, replace=false)
       row, col = ind2sub(size(A), i)
@@ -52,6 +48,7 @@ function generate_random_graph()::Array{Int64,2}
     end
     A
 end
+
 
 # Generates random person object (with random name).
 function get_random_person()::Person
@@ -75,14 +72,14 @@ end
 
 #= Converts given adjacency matrix (NxN)
   into list of graph vertices (of type GraphVertex and length N). =#
-function convert_to_graph(A::Array{Int64,2}, nodes::Array{Graphs.NodeType,1},
+function convert_to_graph(A::BitArray, nodes::Array{Graphs.NodeType,1},
     graph::Array{GraphVertex,1})
   #N = length(nodes)
   #Duplicate since N is known
   push!(graph, map(n -> GraphVertex(n, GraphVertex[]), nodes)...)
 
   for i = 1:N, j = 1:N
-      if A[i,j] == 1
+      if A[i,j]
         push!(graph[i].neighbors, graph[j])
       end
   end
@@ -163,7 +160,7 @@ function test_graph()
 
     graph = GraphVertex[]
 
-    A::Array{Int64,2}= generate_random_graph()
+    A::BitArray= generate_random_graph()
     nodes = generate_random_nodes()
     convert_to_graph(A, nodes, graph)
 
