@@ -38,12 +38,12 @@ const K = 10000
 #= Generates random directed graph of size N with K edges
 and returns its adjacency matrix.=#
 # To be filled with 0 bitmap
-function generate_random_graph()
-    A = falses(N, N)
+function generate_random_graph()::Array{Int64,2}
+    A = Array{Int64,2}(N, N)
 
-    #for i=1:N, j=1:N
-    #  A[i,j] = 0
-    #end
+    for i=1:N, j=1:N
+      A[i,j] = 0
+    end
 
     for i in sample(1:N*N, K, replace=false)
       row, col = ind2sub(size(A), i)
@@ -54,17 +54,18 @@ function generate_random_graph()
 end
 
 # Generates random person object (with random name).
-function get_random_person()
+function get_random_person()::Person
   Person(randstring())
 end
 
 # Generates random person object (with random name).
-function get_random_address()
+function get_random_address():Address
   Address(rand(1:100))
 end
 
 # Generates N random nodes (of random NodeType).
 function generate_random_nodes()
+  #https://lectures.quantecon.org/jl/julia_arrays.html#array-vs-vector-vs-matrix
   nodes = Vector{NodeType}()
   for i= 1:N
     push!(nodes, rand() > 0.5 ? get_random_person() : get_random_address())
@@ -74,9 +75,10 @@ end
 
 #= Converts given adjacency matrix (NxN)
   into list of graph vertices (of type GraphVertex and length N). =#
-function convert_to_graph(A, nodes,
-    graph)
-
+function convert_to_graph(A::Array{Int64,2}, nodes::Array{Graphs.NodeType,1},
+    graph::Array{GraphVertex,1})
+  #N = length(nodes)
+  #Duplicate since N is known
   push!(graph, map(n -> GraphVertex(n, GraphVertex[]), nodes)...)
 
   for i = 1:N, j = 1:N
@@ -88,7 +90,7 @@ end
 
 #= Groups graph nodes into connected parts. E.g. if entire graph is connected,
   result list will contain only one part with all nodes. =#
-function partition(graph)
+function partition(graph::Array{GraphVertex, 1})::Array{Set{Graphs.GraphVertex},1}
   parts = []
   remaining = Set(graph)
   visited = bfs(remaining=remaining)
@@ -104,7 +106,7 @@ end
   Optionally, BFS can initialized with set of skipped and remaining nodes.
   Start nodes is taken from the set of remaining elements. =#
 
-function bfs(;visited::Set=Set(), remaining::Set=Set(graph))
+function bfs(;visited::Set=Set(), remaining::Set=Set(graph))::Set{Graphs.GraphVertex}
 
   first = next(remaining, start(remaining))[1]
   q = [first]
@@ -128,7 +130,7 @@ end
 
 #= Checks if there's Euler cycle in the graph by investigating
    connectivity condition and evaluating if every vertex has even degree =#
-function check_euler(graph::Array{GraphVertex,1})
+function check_euler(graph::Array{GraphVertex,1})::Bool
   if length(partition(graph)) == 1
     return all(map(v -> iseven(length(v.neighbors)), graph))
   end
@@ -137,7 +139,7 @@ end
 
 #= Returns text representation of the graph consisiting of each node's value
    text and number of its neighbors. =#
-function graph_to_str(graph)
+function graph_to_str(graph::Array{GraphVertex, 1})::String
   graph_str= ""
 
   for v in graph
