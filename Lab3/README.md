@@ -129,7 +129,7 @@ BenchmarkTools.Trial:
   evals/sample:     1
 
 ```
-### Removal of casting bit to Int64
+### Removal of casting a bit to Int64
 ```
 BenchmarkTools.Trial: 
   memory estimate:  196.54 MiB
