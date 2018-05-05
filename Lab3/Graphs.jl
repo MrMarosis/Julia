@@ -130,11 +130,11 @@ end
 
 #= Checks if there's Euler cycle in the graph by investigating
    connectivity condition and evaluating if every vertex has even degree =#
-function check_euler(graph::Array{GraphVertex,1})
+function check_euler(graph::Array{GraphVertex,1})::Bool
   if length(partition(graph)) == 1
     return all(map(v -> iseven(length(v.neighbors)), graph))
   end
-    "Graph is not connected"
+    false
 end
 
 #= Returns text representation of the graph consisiting of each node's value
