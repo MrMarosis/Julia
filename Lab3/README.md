@@ -36,6 +36,21 @@ BenchmarkTools.Trial:
   evals/sample:     1
 ```
 
+### Changing return values to be specific
+```
+BenchmarkTools.Trial: 
+  memory estimate:  3.79 GiB
+  allocs estimate:  5472166
+  --------------
+  minimum time:     2.040 s (12.37% GC)
+  median time:      2.076 s (12.46% GC)
+  mean time:        2.076 s (12.61% GC)
+  maximum time:     2.187 s (16.20% GC)
+  --------------
+  samples:          49
+  evals/sample:     1
+```
+
 ### Adding signatures of method parameteres and their return types
 ```
 BenchmarkTools.Trial: 
@@ -49,6 +64,4 @@ BenchmarkTools.Trial:
   --------------
   samples:          53
   evals/sample:     1
-
-
 ```
