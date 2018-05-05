@@ -36,17 +36,19 @@ BenchmarkTools.Trial:
   evals/sample:     1
 ```
 
-### Adjusting structures to the size of stored variables
+### Adding signatures of method parameteres and their return types
 ```
 BenchmarkTools.Trial: 
-  memory estimate:  3.37 GiB
-  allocs estimate:  5548668
+  memory estimate:  3.76 GiB
+  allocs estimate:  3930947
   --------------
-  minimum time:     1.735 s (10.82% GC)
-  median time:      1.833 s (10.66% GC)
-  mean time:        1.858 s (10.74% GC)
-  maximum time:     2.113 s (10.29% GC)
+  minimum time:     1.798 s (17.49% GC)
+  median time:      1.900 s (21.33% GC)
+  mean time:        1.896 s (20.76% GC)
+  maximum time:     1.998 s (21.06% GC)
   --------------
-  samples:          54
+  samples:          53
   evals/sample:     1
+
+
 ```
