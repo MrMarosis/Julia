@@ -35,3 +35,18 @@ BenchmarkTools.Trial:
   samples:          48
   evals/sample:     1
 ```
+
+### Adjusting structures to the size of stored variables
+```
+BenchmarkTools.Trial: 
+  memory estimate:  3.37 GiB
+  allocs estimate:  5548668
+  --------------
+  minimum time:     1.735 s (10.82% GC)
+  median time:      1.833 s (10.66% GC)
+  mean time:        1.858 s (10.74% GC)
+  maximum time:     2.113 s (10.29% GC)
+  --------------
+  samples:          54
+  evals/sample:     1
+```
