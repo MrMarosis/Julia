@@ -20,3 +20,18 @@ BenchmarkTools.Trial:
   samples:          9
   evals/sample:     1
 ```
+
+### Changing global variables to be constant
+```
+BenchmarkTools.Trial: 
+  memory estimate:  3.79 GiB
+  allocs estimate:  5469821
+  --------------
+  minimum time:     1.997 s (10.77% GC)
+  median time:      2.041 s (10.62% GC)
+  mean time:        2.086 s (10.67% GC)
+  maximum time:     2.467 s (10.29% GC)
+  --------------
+  samples:          48
+  evals/sample:     1
+```
