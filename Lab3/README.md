@@ -4,7 +4,7 @@
 All tests were conducted using [BenchmarkTools.jl](https://raw.githubusercontent.com/JuliaCI/BenchmarkTools.jl), 
 which is a benchmarking framework for Julia Language.
 While most of the parameters of the benchmarking process remained unchanged (set to default), 
-the number of seconds budget for a trial was increased to 120 seconds.
+the number of seconds budget for a trial was increased to 100 seconds.
 
 ### Initial results:
 ```
@@ -36,17 +36,48 @@ BenchmarkTools.Trial:
   evals/sample:     1
 ```
 
-### Adjusting structures to the size of stored variables
+### Changing return values to be specific
 ```
 BenchmarkTools.Trial: 
-  memory estimate:  3.37 GiB
-  allocs estimate:  5548668
+  memory estimate:  3.79 GiB
+  allocs estimate:  5472166
   --------------
-  minimum time:     1.735 s (10.82% GC)
-  median time:      1.833 s (10.66% GC)
-  mean time:        1.858 s (10.74% GC)
-  maximum time:     2.113 s (10.29% GC)
+  minimum time:     2.040 s (12.37% GC)
+  median time:      2.076 s (12.46% GC)
+  mean time:        2.076 s (12.61% GC)
+  maximum time:     2.187 s (16.20% GC)
   --------------
-  samples:          54
+  samples:          49
+  evals/sample:     1
+```
+
+### Removing modifiable global variable
+```
+BenchmarkTools.Trial: 
+  memory estimate:  3.76 GiB
+  allocs estimate:  3930065
+  --------------
+  minimum time:     1.798 s (18.21% GC)
+  median time:      1.929 s (22.06% GC)
+  mean time:        1.914 s (21.58% GC)
+  maximum time:     1.956 s (22.36% GC)
+  --------------
+  samples:          53
+  evals/sample:     1
+
+```
+
+### Adding signatures of method parameteres and their return types
+```
+BenchmarkTools.Trial: 
+  memory estimate:  3.76 GiB
+  allocs estimate:  3930947
+  --------------
+  minimum time:     1.798 s (17.49% GC)
+  median time:      1.900 s (21.33% GC)
+  mean time:        1.896 s (20.76% GC)
+  maximum time:     1.998 s (21.06% GC)
+  --------------
+  samples:          53
   evals/sample:     1
 ```
