@@ -115,6 +115,7 @@ BenchmarkTools.Trial:
 
 ```
 ### Limiting IO actions by introducing IO buffer
+```
 BenchmarkTools.Trial: 
   memory estimate:  677.19 MiB
   allocs estimate:  3571105
