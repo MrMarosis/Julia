@@ -4,7 +4,7 @@
 All tests were conducted using [BenchmarkTools.jl](https://raw.githubusercontent.com/JuliaCI/BenchmarkTools.jl), 
 which is a benchmarking framework for Julia Language.
 While most of the parameters of the benchmarking process remained unchanged (set to default), 
-the number of seconds budget for a trial was increased to 120 seconds.
+the number of seconds budget for a trial was increased to 100 seconds.
 
 ### Initial results:
 ```
