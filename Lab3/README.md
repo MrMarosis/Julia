@@ -83,7 +83,7 @@ BenchmarkTools.Trial:
   
 ```
 
-###Changing graph edges' array to be bitArray
+### Changing graph edges' array to be bitArray
 ```
 BenchmarkTools.Trial: 
   memory estimate:  3.29 GiB
