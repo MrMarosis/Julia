@@ -67,34 +67,20 @@ BenchmarkTools.Trial:
 
 ```
 
-### Adding signatures of method parameteres and their return types
-```
-BenchmarkTools.Trial: 
-  memory estimate:  3.76 GiB
-  allocs estimate:  3930947
-  --------------
-  minimum time:     1.798 s (17.49% GC)
-  median time:      1.900 s (21.33% GC)
-  mean time:        1.896 s (20.76% GC)
-  maximum time:     1.998 s (21.06% GC)
-  --------------
-  samples:          53
-  evals/sample:     1
-  
-```
-
-###Changing graph edges' array to be bitArray
+### Breaking functions into multiple definitions
 ```
 BenchmarkTools.Trial: 
   memory estimate:  3.77 GiB
-  allocs estimate:  3929115
+  allocs estimate:  3721679
   --------------
-  minimum time:     1.676 s (19.94% GC)
-  median time:      1.788 s (24.48% GC)
-  mean time:        1.777 s (23.91% GC)
-  maximum time:     1.876 s (24.44% GC)
+  minimum time:     1.654 s (18.49% GC)
+  median time:      1.701 s (18.51% GC)
+  mean time:        1.714 s (18.44% GC)
+  maximum time:     1.927 s (17.64% GC)
   --------------
-  samples:          57
+  samples:          59
   evals/sample:     1
+
   
 ```
+
