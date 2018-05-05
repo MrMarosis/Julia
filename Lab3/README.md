@@ -114,4 +114,16 @@ BenchmarkTools.Trial:
   evals/sample:     1
 
 ```
+### Limiting IO actions by introducing IO buffer
+BenchmarkTools.Trial: 
+  memory estimate:  677.19 MiB
+  allocs estimate:  3571105
+  --------------
+  minimum time:     962.237 ms (7.76% GC)
+  median time:      994.161 ms (7.99% GC)
+  mean time:        1.018 s (7.91% GC)
+  maximum time:     1.351 s (7.25% GC)
+  --------------
+  samples:          99
+  evals/sample:     1
 
