@@ -51,6 +51,22 @@ BenchmarkTools.Trial:
   evals/sample:     1
 ```
 
+### Removing modifiable global variable
+```
+BenchmarkTools.Trial: 
+  memory estimate:  3.76 GiB
+  allocs estimate:  3930065
+  --------------
+  minimum time:     1.798 s (18.21% GC)
+  median time:      1.929 s (22.06% GC)
+  mean time:        1.914 s (21.58% GC)
+  maximum time:     1.956 s (22.36% GC)
+  --------------
+  samples:          53
+  evals/sample:     1
+
+```
+
 ### Adding signatures of method parameteres and their return types
 ```
 BenchmarkTools.Trial: 
