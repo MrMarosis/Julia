@@ -128,3 +128,18 @@ BenchmarkTools.Trial:
   samples:          99
   evals/sample:     1
 
+```
+### Removal of casting a bit to Int64
+```
+BenchmarkTools.Trial: 
+  memory estimate:  196.54 MiB
+  allocs estimate:  3574763
+  --------------
+  minimum time:     708.892 ms (5.12% GC)
+  median time:      730.042 ms (5.31% GC)
+  mean time:        731.931 ms (5.28% GC)
+  maximum time:     785.241 ms (5.27% GC)
+  --------------
+  samples:          137
+  evals/sample:     1
+```
